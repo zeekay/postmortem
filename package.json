@@ -1,0 +1,26 @@
+{
+  "name": "postmortem",
+  "version": "0.1.7",
+  "description": "postmortem is a stacktrace library with source map support",
+  "main": "lib/",
+  "scripts": {
+    "test": "cake test"
+  },
+  "repository": "https://github.com/zeekay/postmortem",
+  "author": {
+    "name": "Zach Kelling",
+    "email": "zk@monoid.io",
+    "url": "https://whatit.is"
+  },
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "source-map-support": "~0.1.5"
+  },
+  "devDependencies": {
+    "executive": "~0.3.0",
+    "chai": "~1.6.0",
+    "coffee-script": "~1.6.3",
+    "mocha": "~1.10.0"
+  }
+}
