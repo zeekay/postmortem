@@ -100,7 +100,10 @@ structuredStackTrace = (err, stack) ->
     _frame = Object.create {}, frame
 
     _frame['this']  = frame.getThis()
-    _frame.type     = frame.getTypeName()
+    try
+      _frame.type     = frame.getTypeName()
+    catch err
+      _frame.type   = ''
     _frame.isTop    = frame.isToplevel()
     _frame.isEval   = frame.isEval()
     _frame.origin   = frame.getEvalOrigin()
