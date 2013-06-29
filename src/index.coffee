@@ -148,7 +148,14 @@ prettyPrint = (err, options = {}) ->
   console.error err.stack
 
 module.exports =
-  install: ->
+  patch: (options = {}) ->
+    options.handleUncaughtExceptions ?= true
+
+    if options.handleUncaughtExceptions
+      process.on 'uncaughtException', (err) ->
+        prettyPrint err, colorize: process.stdout.isTTY
+        process.exit 1
+
     Error.prepareStackTrace = (err, stack) ->
       # rewrite callsites with source map info when possible
       stack = for frame in stack
@@ -157,6 +164,8 @@ module.exports =
       err.structuredStackTrace = structuredStackTrace err, stack
       # return formatted stacktrace
       err + (stack.map (frame) -> '\n    at ' + frame).join ''
+
+  install: -> @patch.apply @, arguments
 
   mapEvalOrigin:        mapEvalOrigin
   mapSourcePosition:    mapSourcePosition

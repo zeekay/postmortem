@@ -15,7 +15,7 @@
   "license": "BSD",
   "readmeFilename": "README.md",
   "dependencies": {
-    "source-map-support": "~0.1.5"
+    "source-map-support": "~0.1.8"
   },
   "devDependencies": {
     "executive": "~0.3.0",
