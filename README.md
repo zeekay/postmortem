@@ -1,2 +1,3 @@
-# postmortem
-Stack trace manipulation and helpers with CoffeeScript and source map support.
+## postmortem
+### When code dies, it deserves a proper autopsy.
+Stacktrace library with support for CoffeeScript and source maps.
