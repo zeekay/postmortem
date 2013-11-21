@@ -1,18 +1,14 @@
 Error._originalPrepareStackTrace = Error.prepareStackTrace
 
-fs        = require 'fs'
-path      = require 'path'
-sourceMap = require 'source-map-support'
+fs   = require 'fs'
+path = require 'path'
 
-cache            = {}
+{mapSourcePosition} = require 'source-map-support'
+
 coffeePrepare    = Error._originalPrepareStackTrace
 coffeeDetected   = typeof coffeePrepare is 'function'
-
 nodeStackRegex   = /\n    at [^(]+ \((.*):(\d+):(\d+)\)/
 coffeeStackRegex = /\n  at [^(]+ \((.*):(\d+):(\d+), <js>/
-
-mapSourcePosition = (frame) ->
-  sourceMap.mapSourcePosition cache, frame
 
 mapEvalOrigin = (origin) ->
   # Most eval() calls are in this format
@@ -20,7 +16,7 @@ mapEvalOrigin = (origin) ->
   if match
     position = mapSourcePosition
       source: match[2]
-      line: match[3]
+      line:   match[3]
       column: match[4]
 
     return 'eval at ' + match[1] + ' (' + position.source + ':' + position.line + ':' + position.column + ')'
@@ -55,7 +51,7 @@ wrapFrame = (err, stack, frame) ->
   if source
     position = mapSourcePosition
       source: source
-      line: frame.getLineNumber()
+      line:   frame.getLineNumber()
       column: frame.getColumnNumber()
 
     return _frame =
@@ -143,7 +139,7 @@ prettyPrint = (err, options = {}) ->
       else
         caret = '^'
 
-      console.error ((new Array(+position.column + 1)).join ' ') + caret
+      console.error ((new Array(+position.column)).join ' ') + caret
 
   console.error err.stack
 
