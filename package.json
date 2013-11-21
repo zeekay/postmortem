@@ -12,6 +12,7 @@
   },
   "main": "lib/",
   "scripts": {
+    "prepublish": "cake build:prepublish",
     "test": "cake test"
   },
   "repository": "https://github.com/zeekay/postmortem",
