@@ -30,7 +30,7 @@ task 'test', 'run tests', (options) ->
   --recursive
   --reporter spec
   --timeout 5000
-  --compilers coffee:coffee-script
+  --compilers coffee:coffee-script/register
   --require postmortem/register
   #{grep}
   #{test}"
