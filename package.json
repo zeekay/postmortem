@@ -24,11 +24,11 @@
   "license": "BSD",
   "readmeFilename": "README.md",
   "dependencies": {
-    "source-map-support": "~0.2.5"
+    "source-map-support": "^0.2.5"
   },
   "devDependencies": {
-    "coffee-script": "~1.6.3",
-    "executive": "~0.4.4",
+    "coffee-script": "~1.7.1",
+    "executive": "~0.4.7",
     "chai": "*",
     "mocha": "*"
   }
