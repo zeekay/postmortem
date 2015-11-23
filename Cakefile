@@ -1,4 +1,4 @@
-exec = require('executive').interactive
+require 'shortcake'
 
 option '-g', '--grep [filter]', 'test filter'
 option '-v', '--version [<newversion> | major | minor | patch | build]', 'new version'
