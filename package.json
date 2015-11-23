@@ -1,6 +1,6 @@
 {
   "name": "postmortem",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "When code dies, it deserves a proper autopsy. Stacktrace library with sourcemap support.",
   "keywords": [
     "stacktrace",
