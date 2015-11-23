@@ -21,7 +21,7 @@
     "email": "zk@monoid.io",
     "url": "http://zeekay.io"
   },
-  "license": "ISC",
+  "license": "MIT",
   "readmeFilename": "README.md",
   "dependencies": {
     "source-map-support": "^0.3.3"
