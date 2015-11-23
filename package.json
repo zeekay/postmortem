@@ -24,6 +24,7 @@
   "license": "BSD",
   "readmeFilename": "README.md",
   "dependencies": {
+    "mocha": "^2.3.4",
     "source-map-support": "^0.2.9"
   },
   "devDependencies": {
