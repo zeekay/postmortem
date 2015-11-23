@@ -11,11 +11,11 @@ module.exports = (options = {}) ->
 
   Error.prepareStackTrace = (err, stack) ->
     # rewrite callsites with source map info when possible
-    _stack = (require './callsite/wrap') err, frame for frame in stack)
+    _stack = ((require './callsite/wrap') err, frame for frame in stack)
 
     # sentry expects structuredStackTrace
     if options.structuredStackTrace
-      err.structuredStackTrace = require('./structured-stack-trace) err, stack
+      err.structuredStackTrace = require('./structured-stack-trace') err, stack
 
     # return formatted stacktrace
     err + ('\n    at ' + frame for frame in _stack).join ''
