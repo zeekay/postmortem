@@ -7,10 +7,10 @@ task 'clean', 'clean project', (options) ->
   exec 'rm -rf lib'
 
 task 'build', 'build project', (options) ->
-  exec 'node_modules/.bin/coffee -bcm -o lib/ src/'
+  exec 'coffee -bcm -o lib/ src/'
 
 task 'watch', 'watch for changes and recompile project', ->
-  exec './node_modules/.bin/coffee -bc -m -w -o lib/ src/'
+  exec 'coffee -bc -m -w -o lib/ src/'
 
 task 'test', 'run tests', (options) ->
   test = options.test ? 'test'
@@ -19,7 +19,7 @@ task 'test', 'run tests', (options) ->
   else
     grep = ''
 
-  exec "NODE_ENV=test ./node_modules/.bin/mocha
+  exec "NODE_ENV=test mocha
   --colors
   --recursive
   --reporter spec
@@ -34,8 +34,8 @@ task 'gh-pages', 'Publish docs to gh-pages', ->
   brief.update()
 
 task 'publish', 'publish project', ->
-  exec '''
+  exec.parallel '''
   git push
   git push --tags
   npm publish
-  '''.split '\n'
+  '''

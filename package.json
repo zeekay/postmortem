@@ -31,6 +31,6 @@
     "coffee-script": "^1.10.0",
     "executive": "^0.5.2",
     "mocha": "^2.3.4",
-    "shortcake": "^0.4.8"
+    "shortcake": "^1.1.2"
   }
 }
