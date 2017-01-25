@@ -1,5 +1,7 @@
 ## postmortem [![Build Status](https://travis-ci.org/zeekay/postmortem.svg?branch=master)](https://travis-ci.org/zeekay/postmortem) [![npm version](https://badge.fury.io/js/postmortem.svg)](https://badge.fury.io/js/postmortem)
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/zeekay/postmortem.svg)](https://greenkeeper.io/)
+
 #### When code dies, it deserves a proper autopsy.
 Stacktrace library with support for CoffeeScript and source maps.
 
