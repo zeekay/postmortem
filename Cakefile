@@ -1,5 +1,10 @@
 require 'shortcake'
 
+use 'cake-bundle'
+use 'cake-outdated'
+use 'cake-publish'
+use 'cake-version'
+
 option '-g', '--grep [filter]', 'test filter'
 option '-v', '--version [<newversion> | major | minor | patch | build]', 'new version'
 
