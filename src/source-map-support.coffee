@@ -1,4 +1,4 @@
-{mapSourcePosition} = require 'source-map-support'
+import {mapSourcePosition} from 'source-map-support'
 
 mapEvalOrigin = (origin) ->
   # Most eval() calls are in this format
@@ -18,6 +18,4 @@ mapEvalOrigin = (origin) ->
   # Make sure we still return useful information if we didn't find anything
   origin
 
-module.exports =
-  mapEvalOrigin:     mapEvalOrigin
-  mapSourcePosition: mapSourcePosition
+export {mapEvalOrigin, mapSourcePosition}

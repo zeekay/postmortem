@@ -55,7 +55,7 @@ CallSiteToString = ->
     line += ' (' + fileLocation + ')'
   line
 
-module.exports = (frame) ->
+export default (frame) ->
   _frame = {}
   proto = Object.getPrototypeOf frame
 

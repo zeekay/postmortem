@@ -1,10 +1,10 @@
-clone = require './clone'
+import clone from './clone'
 
-{coffeePrepare}                    = require '../coffee'
-{coffeeStackRegex}                 = require '../utils'
-{mapSourcePosition, mapEvalOrigin} = require '../source-map-support'
+import {coffeePrepare}                    from '../coffee'
+import {coffeeStackRegex}                 from '../utils'
+import {mapSourcePosition, mapEvalOrigin} from '../source-map-support'
 
-module.exports = (err, frame) ->
+export default (err, frame) ->
   # If using coffee 1.6.2+ executable we can derive source, line, and column
   # from it's prepareStackTrace function
   if coffeePrepare and match = coffeeStackRegex.exec coffeePrepare err, [frame]

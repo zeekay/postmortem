@@ -1,3 +1,7 @@
-module.exports =
-  clone: require './clone'
-  wrap:  require './wrap'
+import clone from './clone'
+import wrap  from './wrap'
+
+export {
+  clone
+  wrap
+}

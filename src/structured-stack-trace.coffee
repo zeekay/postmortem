@@ -39,4 +39,4 @@ structuredStackTrace = (err, stack) ->
       _frame.toJSON   = toJSON
       _frame
 
-module.exports = structuredStackTrace
+export default structuredStackTrace

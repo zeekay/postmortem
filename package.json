@@ -3,26 +3,24 @@
   "version": "0.2.4",
   "description": "When code dies, it deserves a proper autopsy. Stacktrace library with sourcemap support.",
   "keywords": [
-    "stacktrace",
-    "debugging"
+    "debugging",
+    "sourcemaps",
+    "stacktrace"
   ],
   "homepage": "http://github.com/zeekay/postmortem",
   "bugs": {
     "url": "http://github.com/zeekay/postmortem/issues"
   },
-  "main": "lib/",
+  "main": "lib/postmortem.js",
+  "module": "lib/postmortem.mjs",
+  "jsnext:main": "lib/postmortem.mjs",
   "scripts": {
-    "prepublish": "cake build",
+    "prepublishOnly": "cake build",
     "test": "cake test"
   },
   "repository": "https://github.com/zeekay/postmortem",
-  "author": {
-    "name": "Zach Kelling",
-    "email": "zk@monoid.io",
-    "url": "http://zeekay.io"
-  },
+  "author": "Zach Kelling <z@zeekay.io>",
   "license": "MIT",
-  "readmeFilename": "README.md",
   "dependencies": {
     "source-map-support": "^0.4.14"
   },

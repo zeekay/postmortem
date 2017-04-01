@@ -1,11 +1,11 @@
-fs = require 'fs'
+import fs from 'fs'
 
-{mapSourcePosition} = require './source-map-support'
+import {mapSourcePosition} from './source-map-support'
 
-nodeStackRegex   = /\n    at [^(]+ \((.*):(\d+):(\d+)\)/
-coffeeStackRegex = /\((.*)\.coffee:(\d+):(\d+)\)/
+export nodeStackRegex   = /\n    at [^(]+ \((.*):(\d+):(\d+)\)/
+export coffeeStackRegex = /\((.*)\.coffee:(\d+):(\d+)\)/
 
-prettyPrint = (err, options = {}) ->
+export prettyPrint = (err, options = {}) ->
   options.colorize ?= false
 
   match = nodeStackRegex.exec err.stack
@@ -30,8 +30,3 @@ prettyPrint = (err, options = {}) ->
       console.error ((new Array(+position.column)).join ' ') + caret
 
   console.error err.stack
-
-module.exports =
-  coffeeStackRegex: coffeeStackRegex
-  nodeStackRegex:   nodeStackRegex
-  prettyPrint:      prettyPrint

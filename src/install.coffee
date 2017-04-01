@@ -1,6 +1,6 @@
-require './coffee'
+import './coffee'
 
-module.exports = (options = {}) ->
+export default (options = {}) ->
   options.handleUncaughtExceptions ?= true
   options.structuredStackTrace     ?= false
 
