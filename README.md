@@ -7,7 +7,8 @@
 [![chat][chat-img]][chat-url]
 
 ### When code dies, it deserves a proper autopsy.
-Stacktrace library with support for CoffeeScript and source maps.
+Stacktrace library with support for CoffeeScript and source maps. Ensures
+stacktrace output is useful when code is bundled or transpiled.
 
 ## Install
 ```bash
