@@ -5,8 +5,8 @@ import {mapSourcePosition} from './source-map-support'
 export nodeStackRegex   = /\n    at [^(]+ \((.*):(\d+):(\d+)\)/
 export coffeeStackRegex = /\((.*)\.coffee:(\d+):(\d+)\)/
 
-export prettyPrint = (err, options = {}) ->
-  options.colorize ?= false
+export prettyPrint = (err, opts = {}) ->
+  opts.colorize ?= false
 
   match = nodeStackRegex.exec err.stack
   match = coffeeStackRegex.exec err.stack unless match?
@@ -22,7 +22,7 @@ export prettyPrint = (err, options = {}) ->
       console.error position.source + ':' + position.line
       console.error line
 
-      if options.colorize
+      if opts.colorize
         caret = '\x1B[31m^\x1B[39m'
       else
         caret = '^'

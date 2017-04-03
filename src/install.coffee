@@ -1,21 +1,24 @@
 import './coffee'
+import structured    from './structured-stack-trace'
+import wrap          from './callsite/wrap'
+import {prettyPrint} from './utils'
 
-export default (options = {}) ->
-  options.handleUncaughtExceptions ?= true
-  options.structuredStackTrace     ?= false
+export default (opts = {}) ->
+  opts.handleUncaughtExceptions ?= true
+  opts.structuredStackTrace     ?= false
 
-  if options.handleUncaughtExceptions
+  if opts.handleUncaughtExceptions
     process.on 'uncaughtException', (err) ->
-      (require './utils').prettyPrint err, colorize: process.stdout.isTTY
+      prettyPrint err, colorize: process.stdout.isTTY
       process.exit 1
 
   Error.prepareStackTrace = (err, stack) ->
     # rewrite callsites with source map info when possible
-    _stack = ((require './callsite/wrap') err, frame for frame in stack)
+    _stack = (wrap err, frame for frame in stack)
 
     # sentry expects structuredStackTrace
-    if options.structuredStackTrace
-      err.structuredStackTrace = require('./structured-stack-trace') err, stack
+    if opts.structuredStackTrace
+      err.structuredStackTrace = structured err, stack
 
     # return formatted stacktrace
     err + ('\n    at ' + frame for frame in _stack).join ''

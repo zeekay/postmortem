@@ -1,9 +1,10 @@
-postmortem = require '../lib'
+{utils} = require '../'
+require '../register'
 
 describe 'postmortem', ->
   it 'should pretty print stack trace', ->
     err = new Error 'eep'
-    postmortem.utils.prettyPrint err
+    utils.prettyPrint err
 
   it 'should play nice with the stack', ->
     hasStacks = false
